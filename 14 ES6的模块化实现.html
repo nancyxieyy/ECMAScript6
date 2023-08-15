@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14 ES6的模块化实现</title>
+</head>
+<body>
+    <script type="module">
+        //moudle
+        import Person, {name, sayName} from './index.js'
+        console.log(name);
+        console.log(sayName());
+
+        const p = new Person('张三', 20);
+        console.log(p.sayAge());
+    </script>
+</body>
+</html>
