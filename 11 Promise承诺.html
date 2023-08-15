@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11 Promise承诺</title>
+</head>
+<body>
+    <script>
+        //相当于容器，保存着未来才会结束的事件（异步操作）的一个结果
+        //各种异步操作都可以用同样的方法进行处理
+        //特点：
+        //1. 对象的状态不受外界影响
+        //2. 一旦改变状态，就不会再变
+        const p = new Promise(function(resolve, reject){
+            setTimeout(function(){
+                //1.调用resolve
+                // let data = '数据库中的用户数据';
+                // resolve(data);
+
+                //2.调用reject
+                let err = '数据读取失败';
+                reject(err);
+            }, 1000);
+        });
+        p.then(function(value){
+            console.log(value);
+        }, function(reason){
+            console.error(reason);
+        })
+
+    </script>
+</body>
+</html>

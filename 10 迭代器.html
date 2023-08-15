@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 迭代器</title>
+</head>
+<body>
+    <script>
+        //迭代器一种新的遍历机制
+        //1. 是一个能快捷访问数据的接口
+        //通过Symbol.iterator来创建迭代器
+        //通过next()方法获取迭代之后的结果
+        //2.迭代器是用于遍历数据结构的指针
+        const items = ['one', 'two', 'three'];
+        const its = items[Symbol.iterator]();
+        console.log(ite.next());//one
+        console.log(ite.next());//two
+        console.log(ite.next());//three
+        console.log(ite.next());
+
+        //生成器
+        //1. function后面函数名之前有个*
+        //2. 只能在函数内部使用yield表达式，让函数挂起
+        function* func() {
+            yield 2;
+        }
+        func();
+    </script>
+</body>
+</html>

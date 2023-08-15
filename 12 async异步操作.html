@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 async异步操作</title>
+</head>
+<body>
+    <script>
+        //使得异步操作更加方便
+        //基本操作 async会返回一个Promise对象
+        async function f(){
+            //如果有多个await，那么then函数会等待所有的await指令运行完成才执行
+            let s = await 'hello';
+            let data = await s.split('');
+            return data;
+        }
+        f().then(v=>{console.log(v)}).catch(e=>console.log(e));
+
+        async function f2() {
+            throw new Error('出错了');
+        }
+        f2().then(v=>{console.log(v)}).catch(e=>console.log(e));
+    </script>
+</body>
+</html>

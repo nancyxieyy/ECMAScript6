@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13 class类</title>
+</head>
+<body>
+    <script>
+        class Person{
+            //实例化的时候会立即被调用
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            sayName(){
+                return this.name
+            }
+            sayAge(){
+                return this.age
+            }
+            
+        }
+        let p1 = new Person('林克', 100);
+        console.log(p1);
+
+        //类的继承
+        class Animal{
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+            sayName(){
+                return this.name
+            }
+            sayAge(){
+                return this.age
+            }
+        }
+        class Dog extends Animal{
+            constructor(name, age, color){
+                super(name, age);
+                this.color = color;
+            }
+            sayColor(){
+                return `${this.name}是${this.age}岁了，它的颜色是${this.color}`;
+            }
+        }
+        let d = new Dog('小黄', 5, '红色');
+        console.log(d.sayColor());
+    </script>
+</body>
+</html>
