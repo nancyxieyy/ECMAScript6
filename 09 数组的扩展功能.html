@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09 数组的扩展功能</title>
+</head>
+<body>
+    <script>
+        //from()讲伪数组转换成真正的数组
+        function add() {
+            let arr = Array.from(arguments);
+            console.log(arr);
+        }
+        add(1, 2, 3);
+        //of()将一组的值，转换成数组
+        Array.of(1, 2, [1, 2, 3], {id:'1'});
+
+        //copywithin()
+        //把3号位开始的数值，替换0号位开始的数值
+        [1, 2, 3, 8, 9, 10].copyWithin(0, 3);
+
+        //find() findIndex()
+        let num = [1, -2, 3, 8, 9, 10].find(n => n < 0)
+        console.log(num);
+    </script>
+</body>
+</html>

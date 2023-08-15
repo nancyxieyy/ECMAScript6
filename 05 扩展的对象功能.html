@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 扩展的对象功能</title>
+</head>
+<body>
+    <script>
+        //直接写入变量和函数，作为对象的属性和方法，只有属性名一样的时候才行
+        const name = '林克',
+            age = 10;
+        const person = {
+            name, 
+            age,
+            sayName(){
+                console.log(this.name);
+            }
+        }
+        person.sayName();
+    </script>
+</body>
+</html>

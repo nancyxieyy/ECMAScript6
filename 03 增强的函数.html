@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 增强的函数</title>
+</head>
+<body>
+    <script>
+        //1. 带参数默认值的函数
+        //当没给ab赋值时，a为10，b为20
+        function add(a = 10, b = 20) {
+            return a + b;
+        }
+
+        //2. 默认的表达式也可以是一个函数
+        function add(a, b = getVal(5)) {
+            return a + b;
+        }
+        function getVal(val) {
+            return val + 5;
+        }
+        console.log(add(5));
+
+        //3. 剩余参数
+        function pick(obj, ...keys) {
+            let result = Object.create(null);
+            for(let i = 0; i < keys.length; i++) {
+                result[keys[i]] = obj[keys[i]];
+            }
+            return result;
+        }
+
+        let book = {
+            title:'ES6',
+            author:'Hello world',
+            year:2023
+        }
+
+        let bookData = pick(book, 'title', 'author', 'year');
+        console.log(bookData);
+
+        //4.扩展运算符
+        //处理数组中的最大值
+        const arr = [10, 20, 50, 30, 90, 100, 40];
+        console.log(Math.max(...arr));
+
+        //5. es6的箭头函数 =>
+        //function(){}等价于 ()=>{}
+        //两个值
+        let add1 = (a, b)=>{
+            return a + b;
+        } 
+        //一个值
+        let add2 = c=>(c + 5)
+
+        //this指向：取决于调用该函数的上下文对象
+        let PageHandle = {
+            id: 123,
+            init: function() {
+                //箭头函数没有this指向，箭头函数内部this值只能通过查找作用域链来确定
+                document.addEventListener('click', (event)=>{
+                    console.log(this);
+                    this.doSomeThings(event.type);
+                }, false)
+            },
+            doSomeThings: function(type){
+                console.log(`事件类型:${type},当前id:${this.id}`);
+            }
+        }
+        PageHandle.init();
+    </script>
+</body>
+</html>
